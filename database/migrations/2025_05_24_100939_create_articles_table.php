@@ -13,6 +13,15 @@ return new class extends Migration
     {
         Schema::create('articles', function (Blueprint $table) {
             $table->id();
+            $table->string('title');
+            $table->string('slug')->unique();
+            $table->longText('body');
+            $table->integer('duration');
+            $table->boolean('published')->default(false);
+            $table->string('banner');
+            $table->bigInteger('views')->default(0);
+            $table->integer('author_id')->unsigned();
+            $table->foreign('author_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
     }
