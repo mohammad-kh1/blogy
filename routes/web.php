@@ -5,6 +5,7 @@ use Livewire\Volt\Volt;
 
 Route::get("/",\App\Livewire\Home::class)->name("home");
 Route::get("/about",\App\Livewire\About::class)->name("about");
+Route::get('/category' , \App\Livewire\Category::class)->name("category");
 
 Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])

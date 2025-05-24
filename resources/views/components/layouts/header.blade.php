@@ -26,7 +26,7 @@
                 <ul>
                     <li><a href="{{route('home')}}" wire:navigate class="{{request()->routeIs('home') ? 'active' : ''}}" >Home</a></li>
                     <li><a href="{{route('about')}}" wire:navigate class="{{request()->routeIs('about') ? 'active' : ''}}">About</a></li>
-                    <li><a href="category.html">Category</a></li>
+                    <li><a href="{{route('category')}}" class="{{request()->routeIs('category') ? 'active' : ''}}">Category</a></li>
                     <li><a href="blog-details.html">Blog Details</a></li>
                     <li><a href="author-profile.html">Author Profile</a></li>
                     <li class="dropdown"><a href="#"><span>Pages</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
