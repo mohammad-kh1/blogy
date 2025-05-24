@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use Livewire\Volt\Volt;
 
 Route::get("/",\App\Livewire\Home::class)->name("home");
+Route::get("/about",\App\Livewire\About::class)->name("about");
 
 Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])
