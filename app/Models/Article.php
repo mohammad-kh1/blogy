@@ -16,7 +16,7 @@ class Article extends Model
 
     public function author() : BelongsTo
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class ,'author_id');
     }
 
     public function comments() : HasMany
@@ -26,6 +26,6 @@ class Article extends Model
 
     public function categories() : BelongsToMany
     {
-        return $this->belongsToMany(Category::class);
+        return $this->belongsToMany(Category::class ,'category_post' , 'article_id' , 'category_id');
     }
 }
