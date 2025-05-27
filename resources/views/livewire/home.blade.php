@@ -7,73 +7,52 @@
         <div class="container aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">
 
             <div class="blog-grid">
-
                 <!-- Featured Post (Large) -->
                 <article class="blog-item featured aos-init aos-animate" data-aos="fade-up">
-                    <img src="assets/img/blog/blog-post-3.webp" alt="Blog Image" class="img-fluid">
+                    <img src="{{ $articles[0]->banner }}" alt="Blog Image" class="img-fluid">
                     <div class="blog-content">
                         <div class="post-meta">
-                            <span class="date">Apr. 14th, 2025</span>
-                            <span class="category">Technology</span>
+                            <span class="date">{{$articles[0]->created_at->format("M j , Y")}}</span>
+                            <span class="category">{{ $articles[0]->categories[0]->name }}</span>
                         </div>
                         <h2 class="post-title">
-                            <a href="blog-details.html" title="Lorem ipsum dolor sit amet, consectetur adipiscing elit">Lorem ipsum dolor sit amet, consectetur adipiscing elit</a>
+                            <a href="blog-details.html" title="Lorem ipsum dolor sit amet, consectetur adipiscing elit">
+                                {{$articles[0]->title}}
+                            </a>
                         </h2>
                     </div>
                 </article><!-- End Featured Post -->
 
                 <!-- Regular Posts -->
                 <article class="blog-item aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">
-                    <img src="assets/img/blog/blog-post-portrait-1.webp" alt="Blog Image" class="img-fluid">
+                    <img src="{{ $articles[1]->banner }}" alt="Blog Image" class="img-fluid">
                     <div class="blog-content">
                         <div class="post-meta">
-                            <span class="date">Apr. 14th, 2025</span>
-                            <span class="category">Security</span>
+                            <span class="date"> {{ $articles[1]->created_at->format("M j , Y") }} </span>
+                            <span class="category"> {{ $articles[1]->categories[0]->name ?? "" }} </span>
                         </div>
                         <h3 class="post-title">
-                            <a href="blog-details.html" title="Sed do eiusmod tempor incididunt ut labore">Sed do eiusmod tempor incididunt ut labore</a>
+                            <a href="blog-details.html" title="Sed do eiusmod tempor incididunt ut labore">{{$articles[1]->title ?? ''}}</a>
                         </h3>
                     </div>
                 </article><!-- End Blog Item -->
-
+                @php
+                    $articles->shift(2);
+                @endphp
+                @foreach($articles as $article)
                 <article class="blog-item aos-init" data-aos="fade-up" data-aos-delay="200">
-                    <img src="assets/img/blog/blog-post-9.webp" alt="Blog Image" class="img-fluid">
+                    <img src="{{ $article->banner }}" alt="Blog Image" class="img-fluid">
                     <div class="blog-content">
                         <div class="post-meta">
-                            <span class="date">Apr. 14th, 2025</span>
-                            <span class="category">Career</span>
+                            <span class="date">{{ $article->created_at->format("M j , Y") }}</span>
+                            <span class="category">{{ $article->categories[0]->name ?? '' }}</span>
                         </div>
                         <h3 class="post-title">
-                            <a href="blog-details.html" title="Ut enim ad minim veniam, quis nostrud exercitation">Ut enim ad minim veniam, quis nostrud exercitation</a>
+                            <a href="blog-details.html" title="Ut enim ad minim veniam, quis nostrud exercitation">{{ $article->title }}</a>
                         </h3>
                     </div>
                 </article><!-- End Blog Item -->
-
-                <article class="blog-item aos-init" data-aos="fade-up" data-aos-delay="300">
-                    <img src="assets/img/blog/blog-post-7.webp" alt="Blog Image" class="img-fluid">
-                    <div class="blog-content">
-                        <div class="post-meta">
-                            <span class="date">Apr. 14th, 2025</span>
-                            <span class="category">Cloud</span>
-                        </div>
-                        <h3 class="post-title">
-                            <a href="blog-details.html" title="Adipiscing elit, sed do eiusmod tempor incididunt">Adipiscing elit, sed do eiusmod tempor incididunt</a>
-                        </h3>
-                    </div>
-                </article><!-- End Blog Item -->
-
-                <article class="blog-item aos-init" data-aos="fade-up" data-aos-delay="400">
-                    <img src="assets/img/blog/blog-post-6.webp" alt="Blog Image" class="img-fluid">
-                    <div class="blog-content">
-                        <div class="post-meta">
-                            <span class="date">Apr. 14th, 2025</span>
-                            <span class="category">Programming</span>
-                        </div>
-                        <h3 class="post-title">
-                            <a href="blog-details.html" title="Excepteur sint occaecat cupidatat non proident">Excepteur sint occaecat cupidatat non proident</a>
-                        </h3>
-                    </div>
-                </article><!-- End Blog Item -->
+                @endforeach
 
             </div>
 
@@ -409,60 +388,6 @@
 
     </section><!-- /Category Section Section -->
 
-    <!-- Call To Action 2 Section -->
-    <section id="call-to-action-2" class="call-to-action-2 section">
-
-        <div class="container aos-init" data-aos="fade-up" data-aos-delay="100">
-
-            <div class="advertise-1 d-flex flex-column flex-lg-row gap-4 align-items-center position-relative">
-
-                <div class="content-left flex-grow-1 aos-init" data-aos="fade-right" data-aos-delay="200">
-                    <span class="badge text-uppercase mb-2">Don't Miss</span>
-                    <h2>Revolutionize Your Digital Experience Today</h2>
-                    <p class="my-4">Strategia accelerates your business growth through innovative solutions and cutting-edge technology. Join thousands of satisfied customers who have transformed their operations.</p>
-
-                    <div class="features d-flex flex-wrap gap-3 mb-4">
-                        <div class="feature-item">
-                            <i class="bi bi-check-circle-fill"></i>
-                            <span>Premium Support</span>
-                        </div>
-                        <div class="feature-item">
-                            <i class="bi bi-check-circle-fill"></i>
-                            <span>Cloud Integration</span>
-                        </div>
-                        <div class="feature-item">
-                            <i class="bi bi-check-circle-fill"></i>
-                            <span>Real-time Analytics</span>
-                        </div>
-                    </div>
-
-                    <div class="cta-buttons d-flex flex-wrap gap-3">
-                        <a href="#" class="btn btn-primary">Start Free Trial</a>
-                        <a href="#" class="btn btn-outline">Learn More</a>
-                    </div>
-                </div>
-
-                <div class="content-right position-relative aos-init" data-aos="fade-left" data-aos-delay="300">
-                    <img src="assets/img/misc/misc-1.webp" alt="Digital Platform" class="img-fluid rounded-4">
-                    <div class="floating-card">
-                        <div class="card-icon">
-                            <i class="bi bi-graph-up-arrow"></i>
-                        </div>
-                        <div class="card-content">
-                            <span class="stats-number">245%</span>
-                            <span class="stats-text">Growth Rate</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="decoration">
-                    <div class="circle-1"></div>
-                    <div class="circle-2"></div>
-                </div>
-
-            </div>
-
-        </div>
 
     </section><!-- /Call To Action 2 Section -->
 
@@ -478,162 +403,33 @@
         <div class="container aos-init" data-aos="fade-up" data-aos-delay="100">
             <div class="row gy-4">
 
+                @foreach($latest_articles as $article)
                 <div class="col-lg-4">
                     <article>
 
                         <div class="post-img">
-                            <img src="assets/img/blog/blog-post-1.webp" alt="" class="img-fluid">
+                            <img src="{{ $article->banner }}" alt="" class="img-fluid">
                         </div>
 
-                        <p class="post-category">Politics</p>
+                        <p class="post-category">{{ $article->categories[0]->name ?? "" }}</p>
 
                         <h2 class="title">
-                            <a href="blog-details.html">Dolorum optio tempore voluptas dignissimos</a>
+                            <a href="blog-details.html">{{ $article->title }}</a>
                         </h2>
 
                         <div class="d-flex align-items-center">
-                            <img src="assets/img/person/person-f-12.webp" alt="" class="img-fluid post-author-img flex-shrink-0">
+                            <img src="{{ $article->author->profile }}" alt="" class="img-fluid post-author-img flex-shrink-0">
                             <div class="post-meta">
-                                <p class="post-author">Maria Doe</p>
+                                <p class="post-author">{{ $article->author->name }}</p>
                                 <p class="post-date">
-                                    <time datetime="2022-01-01">Jan 1, 2022</time>
+                                    <time datetime="2022-01-01"> {{ $article->created_at->format("M j , Y") }} </time>
                                 </p>
                             </div>
                         </div>
 
                     </article>
-                </div><!-- End post list item -->
-
-                <div class="col-lg-4">
-                    <article>
-
-                        <div class="post-img">
-                            <img src="assets/img/blog/blog-post-2.webp" alt="" class="img-fluid">
-                        </div>
-
-                        <p class="post-category">Sports</p>
-
-                        <h2 class="title">
-                            <a href="blog-details.html">Nisi magni odit consequatur autem nulla dolorem</a>
-                        </h2>
-
-                        <div class="d-flex align-items-center">
-                            <img src="assets/img/person/person-f-13.webp" alt="" class="img-fluid post-author-img flex-shrink-0">
-                            <div class="post-meta">
-                                <p class="post-author">Allisa Mayer</p>
-                                <p class="post-date">
-                                    <time datetime="2022-01-01">Jun 5, 2022</time>
-                                </p>
-                            </div>
-                        </div>
-
-                    </article>
-                </div><!-- End post list item -->
-
-                <div class="col-lg-4">
-                    <article>
-
-                        <div class="post-img">
-                            <img src="assets/img/blog/blog-post-3.webp" alt="" class="img-fluid">
-                        </div>
-
-                        <p class="post-category">Entertainment</p>
-
-                        <h2 class="title">
-                            <a href="blog-details.html">Possimus soluta ut id suscipit ea ut in quo quia et soluta</a>
-                        </h2>
-
-                        <div class="d-flex align-items-center">
-                            <img src="assets/img/person/person-m-10.webp" alt="" class="img-fluid post-author-img flex-shrink-0">
-                            <div class="post-meta">
-                                <p class="post-author">Mark Dower</p>
-                                <p class="post-date">
-                                    <time datetime="2022-01-01">Jun 22, 2022</time>
-                                </p>
-                            </div>
-                        </div>
-
-                    </article>
-                </div><!-- End post list item -->
-
-                <div class="col-lg-4">
-                    <article>
-
-                        <div class="post-img">
-                            <img src="assets/img/blog/blog-post-4.webp" alt="" class="img-fluid">
-                        </div>
-
-                        <p class="post-category">Sports</p>
-
-                        <h2 class="title">
-                            <a href="blog-details.html">Non rem rerum nam cum quo minus olor distincti</a>
-                        </h2>
-
-                        <div class="d-flex align-items-center">
-                            <img src="assets/img/person/person-f-14.webp" alt="" class="img-fluid post-author-img flex-shrink-0">
-                            <div class="post-meta">
-                                <p class="post-author">Lisa Neymar</p>
-                                <p class="post-date">
-                                    <time datetime="2022-01-01">Jun 30, 2022</time>
-                                </p>
-                            </div>
-                        </div>
-
-                    </article>
-                </div><!-- End post list item -->
-
-                <div class="col-lg-4">
-                    <article>
-
-                        <div class="post-img">
-                            <img src="assets/img/blog/blog-post-5.webp" alt="" class="img-fluid">
-                        </div>
-
-                        <p class="post-category">Politics</p>
-
-                        <h2 class="title">
-                            <a href="blog-details.html">Accusamus quaerat aliquam qui debitis facilis consequatur</a>
-                        </h2>
-
-                        <div class="d-flex align-items-center">
-                            <img src="assets/img/person/person-m-11.webp" alt="" class="img-fluid post-author-img flex-shrink-0">
-                            <div class="post-meta">
-                                <p class="post-author">Denis Peterson</p>
-                                <p class="post-date">
-                                    <time datetime="2022-01-01">Jan 30, 2022</time>
-                                </p>
-                            </div>
-                        </div>
-
-                    </article>
-                </div><!-- End post list item -->
-
-                <div class="col-lg-4">
-                    <article>
-
-                        <div class="post-img">
-                            <img src="assets/img/blog/blog-post-6.webp" alt="" class="img-fluid">
-                        </div>
-
-                        <p class="post-category">Entertainment</p>
-
-                        <h2 class="title">
-                            <a href="blog-details.html">Distinctio provident quibusdam numquam aperiam aut</a>
-                        </h2>
-
-                        <div class="d-flex align-items-center">
-                            <img src="assets/img/person/person-f-15.webp" alt="" class="img-fluid post-author-img flex-shrink-0">
-                            <div class="post-meta">
-                                <p class="post-author">Mika Lendon</p>
-                                <p class="post-date">
-                                    <time datetime="2022-01-01">Feb 14, 2022</time>
-                                </p>
-                            </div>
-                        </div>
-
-                    </article>
-                </div><!-- End post list item -->
-
+                </div>
+                @endforeach
             </div>
         </div>
 

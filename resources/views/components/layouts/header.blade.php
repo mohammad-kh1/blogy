@@ -2,17 +2,15 @@
     <div class="container-fluid container-xl position-relative">
 
         <div class="top-row d-flex align-items-center justify-content-between">
-            <a href="index.html" class="logo d-flex align-items-end">
-                <!-- Uncomment the line below if you also wish to use an image logo -->
-                <!-- <img src="assets/img/logo.webp" alt=""> -->
+            <a href="/" class="logo d-flex align-items-end">
                 <h1 class="sitename">Blogy</h1><span>.</span>
             </a>
 
             <div class="d-flex align-items-center">
 
 
-                <form class="search-form ms-4">
-                    <input type="text" placeholder="Search..." class="form-control">
+                <form wire:submit="search" class="search-form ms-4">
+                    <input type="text" wire:model="title" placeholder="Search..." class="form-control">
                     <button type="submit" class="btn"><i class="bi bi-search"></i></button>
                 </form>
             </div>
