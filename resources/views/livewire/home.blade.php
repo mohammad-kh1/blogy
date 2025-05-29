@@ -16,7 +16,7 @@
                             <span class="category">{{ $articles[0]->categories[0]->name }}</span>
                         </div>
                         <h2 class="post-title">
-                            <a href="blog-details.html" title="Lorem ipsum dolor sit amet, consectetur adipiscing elit">
+                            <a href="{{ route("articleDetail" , $articles[0]->slug) }}" title="Lorem ipsum dolor sit amet, consectetur adipiscing elit">
                                 {{$articles[0]->title}}
                             </a>
                         </h2>
